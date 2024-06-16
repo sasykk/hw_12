@@ -54,7 +54,6 @@ def search_contacts(query: str, db: Session = Depends(get_db),
                     current_user: schemas.User = Depends(crud.get_current_active_user)):
     return crud.search_contacts(db, query=query, user_id=current_user.id)
 
-
 @app.get("/contacts/upcoming_birthdays/", response_model=list[schemas.Contact])
 def get_upcoming_birthdays(db: Session = Depends(get_db),
                            current_user: schemas.User = Depends(crud.get_current_active_user)):
